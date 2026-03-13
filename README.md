@@ -43,4 +43,8 @@ Após salvar, pressione `Ctrl + F5` (ou limpe o cache do seu navegador) na tela 
 
 ## 🛠️ Manutenção e Dicas Importantes
 
-* **Atualizações do GLPI:** O GLPI pode alterar o nome de algumas classes CSS em grandes
+* **Atualizações do GLPI:** O GLPI pode alterar o nome de algumas classes CSS em grandes atualizações (ex: de `.sidebar` para outro nome). Se algo parar de funcionar após um update, use a ferramenta de Inspecionar do navegador (F12) para verificar se as classes continuam as mesmas.
+* **Não edite o Core:** Nunca altere os arquivos originais dentro das pastas estruturais do GLPI. Use sempre a injeção de CSS personalizado para evitar que seu tema seja apagado durante uma atualização do sistema.
+
+---
+*Desenvolvido por Lorenzo - 2026*
