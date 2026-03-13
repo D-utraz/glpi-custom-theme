@@ -1,0 +1,169 @@
+/* =========================================================
+   TEMA PERSONALIZADO GLPI
+   Projeto: Personalização Visual GLPI
+   Autor: Lorenzo
+   Data: 2026
+   ---------------------------------------------------------
+   IMPORTANTE:
+   Para que a sua logo apareça corretamente, hospede a imagem
+   num servidor web acessível ou na pasta do próprio GLPI e
+   substitua o link "COLOQUE_A_URL_DA_SUA_LOGO_AQUI.png" 
+   pelo caminho real da sua imagem.
+   ---------------------------------------------------------
+   Este ficheiro centraliza todas as alterações visuais do GLPI:
+   - Cores da sidebar
+   - Logo interna
+   - Logo e cores do ecrã de login
+   - Ajustes no dashboard
+   ========================================================= */
+
+
+/* =========================================================
+   1. SIDEBAR (MENU LATERAL)
+   =========================================================
+   Controla:
+   - Cor de fundo
+   - Cor dos textos
+   - Cor dos links ativos
+   ---------------------------------------------------------
+   DICA:
+   Se a sidebar "sumir" após update do GLPI, verifique
+   se a classe .sidebar ainda existe no HTML.
+   ========================================================= */
+
+.sidebar {
+  background-color: #4b31ad; /* Roxo principal da identidade visual */
+  color: #ffffff;            /* Texto branco para contraste */
+}
+
+/* Links normais */
+.sidebar #navbar-menu .nav-item .nav-link {
+  color: #ffffff !important;
+}
+
+/* Links ativos ou abertos */
+.sidebar #navbar-menu .nav-item .nav-link.show,
+.sidebar #navbar-menu .nav-item .nav-link.active {
+  color: #ffffff !important;
+  border-left-color: #ffffff; /* Borda lateral branca */
+}
+
+
+/* =========================================================
+   2. LOGO NO PAINEL INTERNO (LAYOUT VERTICAL)
+   =========================================================
+   Local: Parte superior do sistema após login
+   Classe principal: .glpi-logo
+   ---------------------------------------------------------
+   DICA:
+   Insira abaixo a URL direta da sua imagem de logótipo.
+   ========================================================= */
+
+body.vertical-layout .page .glpi-logo {
+  display: inline-block;
+  background: url("COLOQUE_A_URL_DA_SUA_LOGO_AQUI.png") no-repeat center center;
+  background-size: contain; /* Garante que a imagem não estoure */
+  height: 140px; /* Altura da logo */
+  width: 170px;  /* Largura da logo */
+}
+
+
+/* =========================================================
+   3. ECRÃ DE LOGIN (WELCOME / ANONYMOUS)
+   =========================================================
+   Controla:
+   - Logo do ecrã de login
+   - Cor de fundo
+   - Cores de textos e labels
+   ========================================================= */
+
+/* Logo no ecrã de login */
+body.welcome-anonymous .glpi-logo {
+  display: inline-block;
+  width: 200px;
+  height: 110px;
+  background: url("COLOQUE_A_URL_DA_SUA_LOGO_AQUI.png") no-repeat center center;
+  background-size: contain;
+  content: none !important; /* Remove conteúdo original do GLPI */
+}
+
+/* Fundo do ecrã de login */
+body.welcome-anonymous {
+  background-color: #4b31ad; /* Roxo institucional */
+}
+
+/* Texto de copyright */
+body.welcome-anonymous .copyright {
+  color: #ffffff !important;
+}
+
+/* Campos de input (utilizador e palavra-passe) */
+body.welcome-anonymous .form-control {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Labels (Utilizador, Palavra-passe, etc.) */
+body.welcome-anonymous .form-label {
+  color: #f77f00; /* Laranja de destaque */
+}
+
+/* Título do card de login */
+body.welcome-anonymous .card-header h2 {
+  font-family: "Arial Black", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f77f00;
+  text-align: center;
+}
+
+
+/* =========================================================
+   4. DASHBOARD (FULLSCREEN E EMBED)
+   =========================================================
+   Aplica quando o painel está em:
+   - Ecrã inteiro (fullscreen)
+   - Embutido (embed)
+   ========================================================= */
+
+.dashboard.fullscreen .glpi_logo,
+.dashboard.embed .glpi_logo {
+  background: url("COLOQUE_A_URL_DA_SUA_LOGO_AQUI.png") no-repeat;
+  width: 250px;
+  height: 150px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.page-body.container-fluid {
+  background-color: #4b31ad; /* ou #4b31ad */
+}
+.dashboard.fullscreen {
+  border: 2px solid #4b31ad; /* azul */
+  border-radius: 8px;
+}
+
+
+
+
+/* =========================================================
+   5. MANUTENÇÃO E FUTURAS ALTERAÇÕES
+   =========================================================
+   REGRAS IMPORTANTES:
+   ---------------------------------------------------------
+   1. Certifique-se de que a URL da logo é válida e está 
+      acessível para todos os utilizadores que acedem ao GLPI.
+
+   2. Sempre que o GLPI atualizar:
+      → Verificar se as classes (.sidebar, .glpi-logo, etc.)
+        continuam a existir com o mesmo nome.
+
+   3. Nunca editar ficheiros do core do GLPI:
+      → Use apenas CSS personalizado.
+
+   4. Antes de testar em produção:
+      → Testar num navegador anónimo ou limpar a cache.
+
+   5. Se algo "sumir":
+      → Usar F12 (Inspecionar) e procurar a classe.
+   ========================================================= */
